@@ -25,23 +25,23 @@ public class WanderingAI : MonoBehaviour
             Ray ray = new Ray(transform.position, transform.forward);
              Debug.DrawRay(transform.position, transform.forward, Color.green);
             RaycastHit hit;
-            if (Physics.SphereCast(ray, 0.75f, out hit))
-            {
+            
+            if (Physics.SphereCast(ray, 0.75f, out hit)) {
                 GameObject hitObject = hit.transform.gameObject;
+
                 if (hitObject.GetComponent<PlayerCharacter>()) {
-                if (fireball == null) {
-                    fireball = Instantiate(fireballPrefab) as GameObject;
-                    fireball.transform.position =
-                    transform.TransformPoint(Vector3.forward * 1.5f);
-                    fireball.transform.rotation = transform.rotation;
+                    if (fireball == null) {
+                        fireball = Instantiate(fireballPrefab) as GameObject;
+                        fireball.transform.position =
+                        transform.TransformPoint(Vector3.forward * 1.5f);
+                        fireball.transform.rotation = transform.rotation;
+                     }
                 }
-                else if (hit.distance < obstacleRange)
-                {
+                else if (hit.distance < obstacleRange) {
                     float angle = Random.Range(-110, 110);
                     transform.Rotate(0, angle, 0);
                 }
-                }
-            }
+}
         }
     }
     public void SetAlive(bool alive)
