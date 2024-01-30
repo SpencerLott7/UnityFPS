@@ -5,7 +5,7 @@ using UnityEngine;
 public class WanderingAI : MonoBehaviour
 {
     public float speed = 3.0f;
-    public float obstacleRange = 5.0f;
+    public float obstacleRange = 1.0f;
     private bool isAlive;
     // Start is called before the first frame update
     void Start()
